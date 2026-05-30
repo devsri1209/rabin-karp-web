@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rabin-Karp Pattern Search</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Rabin-Karp Pattern Search</h1>
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        <input type="file"
+               name="file"
+               required>
+
+        <input type="text"
+               name="pattern"
+               placeholder="Enter Pattern"
+               required>
+
+        <button type="submit">
+            Search Pattern
+        </button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>Search Results</h2>
+
+        <p>
+            <strong>Text Length:</strong>
+            {{ result.text_length }}
+        </p>
+
+        <p>
+            <strong>Pattern Length:</strong>
+            {{ result.pattern_length }}
+        </p>
+
+        <p>
+            <strong>Pattern Count:</strong>
+            {{ result.count }}
+        </p>
+
+        <p>
+            <strong>Positions:</strong>
+            {{ result.positions }}
+        </p>
+
+        <p>
+            <strong>Execution Time:</strong>
+            {{ result.time }} sec
+        </p>
+
+        <a href="/download">
+            <button>
+                Download PDF Report
+            </button>
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
